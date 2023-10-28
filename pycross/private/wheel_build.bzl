@@ -158,6 +158,8 @@ def _pycross_wheel_build_impl(ctx):
         toolchain_deps.append(cpp_toolchain.all_files)
     if py_toolchain.files:
         toolchain_deps.append(py_toolchain.files)
+    if py_toolchain.interpreter.files:
+        toolchain_deps.append(py_toolchain.interpreter.files)
 
     # If a pycross toolchain is configured, we use that to get the exec and target Python.
     if PYCROSS_TOOLCHAIN_TYPE in ctx.toolchains and ctx.toolchains[PYCROSS_TOOLCHAIN_TYPE]:
